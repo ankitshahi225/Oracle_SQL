@@ -1,0 +1,360 @@
+-------Que-1(WAQTD DESIGNATION OF EMPLOYEE WHICH IS PRESENT IN EMPLOYEE 
+TABLE.)
+
+SQL> SELECT JOB
+  2  FROM EMP;
+
+Output :-
+
+JOB                                                                                                 
+---------                                                                                           
+CLERK                                                                                               
+CLERK                                                                                               
+CLERK                                                                                               
+CLERK                                                                                               
+SALESMAN                                                                                            
+SALESMAN                                                                                            
+MANAGER                                                                                             
+SALESMAN                                                                                            
+MANAGER                                                                                             
+MANAGER                                                                                             
+ANALYST                                                                                             
+PRESIDENT                                                                                           
+SALESMAN                                                                                            
+ANALYST                                                                                             
+
+14 rows selected.
+
+-------Que-2(WAQTD DEPARTMENT NAME ALONG WITH LOCATION OF EMPLOYEES IN 
+DEPARTMENT TABLE.)
+
+SQL> SELECT DNAME,LOC
+  2  FROM DEPT;
+
+Output :-
+
+DNAME          LOC                                                                                  
+-------------- -------------                                                                        
+ACCOUNTING     NEW YORK                                                                             
+RESEARCH       DALLAS                                                                               
+SALES          CHICAGO                                                                              
+OPERATIONS     BOSTON 
+
+-------Que-3 (WAQTD DATE OF JOINING OF EMPLOYEE IN EMPLOYEE TABLE.)                                                                              
+
+SQL> SELECT ENAME,HIREDATE
+  2  FROM EMP;
+
+Output:-
+
+ENAME      HIREDATE                                                                                 
+---------- ---------                                                                                
+SMITH      17-DEC-80                                                                                
+ADAMS      23-MAY-87                                                                                
+JAMES      03-DEC-81                                                                                
+MILLER     23-JAN-82                                                                                
+ALLEN      20-FEB-81                                                                                
+WARD       22-FEB-81                                                                                
+JONES      02-APR-81                                                                                
+MARTIN     28-SEP-81                                                                                
+BLAKE      01-MAY-81                                                                                
+CLARK      09-JUN-81                                                                                
+SCOTT      19-APR-87                                                                                
+KING       17-NOV-81                                                                                
+TURNER     08-SEP-81                                                                                
+FORD       03-DEC-81                                                                                
+
+14 rows selected.
+
+-------Que-4(WAQTD QUARTER TERM SALARY OF ALL THE EMPLOYEES IN EMPLOYEE 
+TABLE.)
+
+SQL>
+  1  SELECT SAL,SAL*3 QUARTER_SAL
+  2 FROM EMP;
+
+Output:-
+
+       SAL QUARTER_SAL                                                                              
+---------- -----------                                                                              
+       800        2400                                                                              
+      1100        3300                                                                              
+       950        2850                                                                              
+      1300        3900                                                                              
+      1600        4800                                                                              
+      1250        3750                                                                              
+      2975        8925                                                                              
+      1250        3750                                                                              
+      2850        8550                                                                              
+      2450        7350                                                                              
+      3000        9000                                                                              
+      5000       15000                                                                              
+      1500        4500                                                                              
+      3000        9000                                                                              
+
+14 rows selected.
+
+-------Que-5(WAQTD ENAME, SALARY, ANNUAL SALARY WITH THE HIKE OF 25% AND 
+1000RS BONUS IN QUARTER SALARY FROM EMPLOYEE TABLE.)
+
+SQL>
+  1  SELECT ENAME,SAL,SAL*12*1.25 "HIKE OF 25% OF ANN_SAL"
+  2  ,SAL*3+1000 AS "BONUS OF 1000 IN QUART_SAL"
+  3 FROM EMP;
+
+Output:-
+
+ENAME             SAL HIKE OF 25% OF ANN_SAL BONUS OF 1000 IN QUART_SAL                             
+---------- ---------- ---------------------- --------------------------                             
+SMITH             800                  12000                       3400                             
+ADAMS            1100                  16500                       4300                             
+JAMES             950                  14250                       3850                             
+MILLER           1300                  19500                       4900                             
+ALLEN            1600                  24000                       5800                             
+WARD             1250                  18750                       4750                             
+JONES            2975                  44625                       9925                             
+MARTIN           1250                  18750                       4750                             
+BLAKE            2850                  42750                       9550                             
+CLARK            2450                  36750                       8350                             
+SCOTT            3000                  45000                      10000                             
+KING             5000                  75000                      16000                             
+TURNER           1500                  22500                       5500                             
+FORD             3000                  45000                      10000                             
+
+14 rows selected.
+
+-------Que-6(DISPLAY UNIQUE JOB FROM EMPLOYEE TABLE.)
+
+SQL> 1  SELECT DISTINCT(JOB)
+ 2 FROM EMP;
+
+Output:-
+
+JOB                                                                                                 
+---------                                                                                           
+CLERK                                                                                               
+SALESMAN                                                                                            
+PRESIDENT                                                                                           
+MANAGER                                                                                             
+ANALYST                                                                                             
+
+-------Que-8(WAQTD ENAME ALONG WITH THERE SALARY, ANNUAL SALARY, 
+MIDTERM SALARY, QUARTERTERM SALARY ALONG WITH SUITABLE 
+ALIAS NAME FOR EACH OF THEM.)
+
+SQL> SELECT ENAME,SAL,SAL*12 "ANNUAL SALARY",
+  2  SAL*6 "MID TERM SAL",SAL*3 "QUARTER SAL"
+  3  FROM EMP;
+
+Output:-
+
+ENAME             SAL ANNUAL SALARY MID TERM SAL QUARTER SAL                                        
+---------- ---------- ------------- ------------ -----------                                        
+SMITH             800          9600         4800        2400                                        
+ADAMS            1100         13200         6600        3300                                        
+JAMES             950         11400         5700        2850                                        
+MILLER           1300         15600         7800        3900                                        
+ALLEN            1600         19200         9600        4800                                        
+WARD             1250         15000         7500        3750                                        
+JONES            2975         35700        17850        8925                                        
+MARTIN           1250         15000         7500        3750                                        
+BLAKE            2850         34200        17100        8550                                        
+CLARK            2450         29400        14700        7350                                        
+SCOTT            3000         36000        18000        9000                                        
+KING             5000         60000        30000       15000                                        
+TURNER           1500         18000         9000        4500                                        
+FORD             3000         36000        18000        9000                                        
+
+14 rows selected.
+
+-------Que-9 (WAQTD EMPLOYEE NAME ALONG WITH THEIR SALARY AND GETTING 
+HIKE OF 25% FROM EMPLOYEE TABLE.)
+
+SQL> SELECT ENAME,SAL,SAL*1.25 "25% HIKE SAL"
+  2  FROM EMP;
+
+Output:-
+
+ENAME             SAL 25% HIKE SAL                                                                  
+---------- ---------- ------------                                                                  
+SMITH             800         1000                                                                  
+ADAMS            1100         1375                                                                  
+JAMES             950       1187.5                                                                  
+MILLER           1300         1625                                                                  
+ALLEN            1600         2000                                                                  
+WARD             1250       1562.5                                                                  
+JONES            2975      3718.75                                                                  
+MARTIN           1250       1562.5                                                                  
+BLAKE            2850       3562.5                                                                  
+CLARK            2450       3062.5                                                                  
+SCOTT            3000         3750                                                                  
+KING             5000         6250                                                                  
+TURNER           1500         1875                                                                  
+FORD             3000         3750                                                                  
+
+14 rows selected.
+
+-------Que-10 (WAQTD ENAME, SALARY, ANNUAL SALARY, 10% REDUCTION IN ANNUAL 
+SALARY IN EMPLOYEE TABLE.)
+
+SQL> SELECT ENAME,SAL,SAL*12,SAL*12*.90
+  2  FROM EMP;
+
+Output :-
+
+ENAME             SAL     SAL*12 SAL*12*.90                                                         
+---------- ---------- ---------- ----------                                                         
+SMITH             800       9600       8640                                                         
+ADAMS            1100      13200      11880                                                         
+JAMES             950      11400      10260                                                         
+MILLER           1300      15600      14040                                                         
+ALLEN            1600      19200      17280                                                         
+WARD             1250      15000      13500                                                         
+JONES            2975      35700      32130                                                         
+MARTIN           1250      15000      13500                                                         
+BLAKE            2850      34200      30780                                                         
+CLARK            2450      29400      26460                                                         
+SCOTT            3000      36000      32400                                                         
+KING             5000      60000      54000                                                         
+TURNER           1500      18000      16200                                                         
+FORD             3000      36000      32400                                                         
+
+14 rows selected.
+
+-------Que-11(.WAQTD EMPLOYEE NAME AND HIS EMPLOYEE NUMBER AND HIS HIRED 
+DATE AND SALARY WITH REDUCTION OF 20% FROM EMPLOYEE TABLE.)
+
+SQL> SELECT ENAME,EMPNO,HIREDATE,SAL*0.80
+  2  FROM EMP;
+
+Output:-
+
+ENAME           EMPNO HIREDATE    SAL*0.80                                                          
+---------- ---------- --------- ----------                                                          
+SMITH            7369 17-DEC-80        640                                                          
+ADAMS            7876 23-MAY-87        880                                                          
+JAMES            7900 03-DEC-81        760                                                          
+MILLER           7934 23-JAN-82       1040                                                          
+ALLEN            7499 20-FEB-81       1280                                                          
+WARD             7521 22-FEB-81       1000                                                          
+JONES            7566 02-APR-81       2380                                                          
+MARTIN           7654 28-SEP-81       1000                                                          
+BLAKE            7698 01-MAY-81       2280                                                          
+CLARK            7782 09-JUN-81       1960                                                          
+SCOTT            7788 19-APR-87       2400                                                          
+KING             7839 17-NOV-81       4000                                                          
+TURNER           7844 08-SEP-81       1200                                                          
+FORD             7902 03-DEC-81       2400                                                          
+
+14 rows selected.
+
+-------Que-12(WRITE A QUERY TO DISPLAY ALL THE DETAILS OF EACH AND EVERY 
+EMPLOYEE OF THE COMPANY)
+
+SQL> SELECT *
+  2  FROM EMP;
+
+Output:-
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO               
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------               
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20               
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20               
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30               
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10               
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30               
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30               
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20               
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30               
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30               
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10               
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20               
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10               
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30               
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20               
+
+14 rows selected.
+
+--------------------------------------------------------------------------------------------------
+Error:-(SQL> SELECT ENAME,SAL*12 "Annual Salary",SAL*12+1000 "1000 DIWALI BONUS WITH ANNUAL SAL"
+  2  FROM EMP;
+SELECT ENAME,SAL*12 "Annual Salary",SAL*12+1000 "1000 DIWALI BONUS WITH ANNUAL SAL"
+                                                *
+ERROR at line 1:
+ORA-00972: identifier is too long (In Alias Name we can't take large string))
+--------------------------------------------------------------------------------------------------
+-------Que:-13 (WAQTD NAME OF THE EMPLOYEE, ANNUAL SALARY OF EMPLOYEE 
+ALONG WITH THE BONUS AMOUNT 1000 RS. THEY GOT FOR DIWALI 
+OCCASION GIVE THE PROPER ALIAS NAME FOR THE SAME.)
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  SELECT ENAME,SAL*12 "Annual Salary",SAL*12+1000 "1K DIWALI BONUS FOR ANN SAL"
+  2* FROM EMP
+SQL> /
+Output :-
+
+ENAME      Annual Salary 1K DIWALI BONUS FOR ANN SAL                                                
+---------- ------------- ---------------------------                                                
+SMITH               9600                       10600                                                
+ADAMS              13200                       14200                                                
+JAMES              11400                       12400                                                
+MILLER             15600                       16600                                                
+ALLEN              19200                       20200                                                
+WARD               15000                       16000                                                
+JONES              35700                       36700                                                
+MARTIN             15000                       16000                                                
+BLAKE              34200                       35200                                                
+CLARK              29400                       30400                                                
+SCOTT              36000                       37000                                                
+KING               60000                       61000                                                
+TURNER             18000                       19000                                                
+FORD               36000                       37000                                                
+
+14 rows selected.
+
+-------Que:-14 (.WAQTD EVERY DETAIL OF DEPARTMENT PRESENT IN THE COMPANY.)
+
+SQL> SELECT *
+  2  FROM DEPT;
+
+
+Output:-
+    DEPTNO DNAME          LOC                                                                       
+---------- -------------- -------------                                                             
+        10 ACCOUNTING     NEW YORK                                                                  
+        20 RESEARCH       DALLAS                                                                    
+        30 SALES          CHICAGO                                                                   
+        40 OPERATIONS     BOSTON                                                                    
+
+-------Que-15 (WAQTD NAME OF EMPLOYEE, HOW MUCH THEY ARE EARNING, WHAT 
+DESIGNATION THEY ARE WORKING FOR, HOW MUCH COMMISSION 
+THEY ARE GETTING FOR THEIR WORK, AT WHAT TIME THEY HAVE 
+JOINED THE COMPANY ALSO IN WHICH DEPARTMENT NUMBER THEY 
+ARE ASSIGNED.)
+
+SQL>SELECT ENAME,SAL EARNING,JOB DESIGNATION,COMM COMMISSION,HIREDATE "JOINING DATE",
+  2  DEPTNO DEPARTMNET_NO
+  3 FROM EMP;
+Output:-
+
+ENAME         EARNING DESIGNATI COMMISSION JOINING D DEPARTMNET_NO                                  
+---------- ---------- --------- ---------- --------- -------------                                  
+SMITH             800 CLERK                17-DEC-80            20                                  
+ADAMS            1100 CLERK                23-MAY-87            20                                  
+JAMES             950 CLERK                03-DEC-81            30                                  
+MILLER           1300 CLERK                23-JAN-82            10                                  
+ALLEN            1600 SALESMAN         300 20-FEB-81            30                                  
+WARD             1250 SALESMAN         500 22-FEB-81            30                                  
+JONES            2975 MANAGER              02-APR-81            20                                  
+MARTIN           1250 SALESMAN        1400 28-SEP-81            30                                  
+BLAKE            2850 MANAGER              01-MAY-81            30                                  
+CLARK            2450 MANAGER              09-JUN-81            10                                  
+SCOTT            3000 ANALYST              19-APR-87            20                                  
+KING             5000 PRESIDENT            17-NOV-81            10                                  
+TURNER           1500 SALESMAN           0 08-SEP-81            30                                  
+FORD             3000 ANALYST              03-DEC-81            20                                  
+
+14 rows selected.
+
