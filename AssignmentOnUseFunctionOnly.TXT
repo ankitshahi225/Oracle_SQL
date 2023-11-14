@@ -1,0 +1,321 @@
+
+-----Que-01(List the name of employees whose name has 4 characters.)
+
+SELECT ENAME
+  2  FROM EMP
+  3  WHERE LENGTH(ENAME)=4;
+
+Output:-
+
+ENAME                                                                                               
+----------                                                                                          
+WARD                                                                                                
+KING                                                                                                
+FORD                                                                                                
+
+-----Que-02(List the name of employees whose job has 7 characters.)
+
+SQL> SELECT ENAME,JOB
+  2  FROM EMP
+  3  WHERE LENGTH(JOB)=7;
+
+ENAME      JOB                                                                                      
+---------- ---------                                                                                
+JONES      MANAGER                                                                                  
+BLAKE      MANAGER                                                                                  
+CLARK      MANAGER                                                                                  
+SCOTT      ANALYST                                                                                  
+FORD       ANALYST                                                                                  
+
+
+-----Que-03(Find out how many times letter 'S' occurs in 'QSPIDERS'.)
+
+SQL> SELECT LENGTH('QSPIDERS')-LENGTH(REPLACE('QSPIDERS','S'))
+  2  FROM DUAL;
+
+Output:-
+LENGTH('QSPIDERS')-LENGTH(REPLACE('QSPIDERS','S'))                                                  
+--------------------------------------------------                                                  
+                                                 2                                                  
+
+
+-----Que-04(List the employees whose job is having last 3 characters as'MAN'.)
+
+SQL> SELECT *
+  2  FROM EMP
+  3  WHERE SUBSTR(JOB,-3,3)='MAN';
+
+Output:-
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO               
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------               
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30               
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30               
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30               
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30               
+
+
+-----Que-05(List employees whose job is having first 3 characters as'MAN'.)
+
+SQL> SELECT *
+  2  FROM EMP
+  3  WHERE SUBSTR(JOB,1,3)='MAN';
+
+Output:-
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO               
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------               
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20               
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30               
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10               
+
+
+
+-----Que-06(Display all the names whose name is having exactly one 'L'.
+)
+SQL> SELECT ENAME
+  2  FROM EMP
+  3  WHERE LENGTH(ENAME)-LENGTH(REPLACE(ENAME,'L'))=1;
+
+Output:-
+ENAME                                                                                               
+----------                                                                                          
+BLAKE                                                                                               
+CLARK                                                                                               
+
+
+-----Que-07(Display department names which contain letter 'O' in it.)
+
+SQL> SELECT DNAME
+  2  FROM DEPT
+  3  WHERE LENGTH(DNAME)-LENGTH(REPLACE(DNAME,'O')) >=1;
+
+Output:-
+DNAME                                                                                               
+--------------                                                                                      
+ACCOUNTING                                                                                          
+OPERATIONS                                                                                          
+
+
+-----Que-08(Display the output as shown below,
+	Scott working as a clerk earns 3000 in dept 20)
+
+
+SQL>  SELECT CONCAT(ENAME,CONCAT('Working As',CONCAT(JOB,CONCAT(
+  2  'Earns',CONCAT(SAL,CONCAT('In Dept',DEPTNO))))))
+  3  FROM EMP
+  4  WHERE ENAME='SCOTT' AND JOB='CLERK' AND SAL=3000 AND DEPTNO=20;
+
+Output:-
+  no rows selected//// (Because scott is not working as clerk)
+
+SQL> SELECT * FROM EMP;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO               
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------               
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20               
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20               
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30               
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10               
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30               
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30               
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20               
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30               
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30               
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10               
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20               
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10               
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30               
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20               
+
+~~~~~~~~~~~~~(EXAMPLE)~~~~~~~~~~~
+
+SQL> SELECT CONCAT('Scott working as a ','clerk earns 3000 in dept 20.')
+  2  FROM DUAL;
+
+CONCAT('SCOTTWORKINGASA','CLERKEARNS3000INDEPT2                                                     
+-----------------------------------------------                                                     
+Scott working as a clerk earns 3000 in dept 20.                                                     
+
+
+
+~~~~~~Que-09(Calculate number of L in string 'HELLLLL')
+
+
+SQL>  SELECT LENGTH( 'HELLLLL')-LENGTH(REPLACE( 'HELLLLL','L')) "No Of 'L' in HELLLLL"
+  2 FROM DUAL;
+
+Output:-
+
+No Of 'L' in HELLLLL                                                                                
+--------------------                                                                                
+                   5                                                                                
+
+
+~~~~~~Que-10(Display all the employees whose job have a string 'MAN'.)
+
+SQL>   SELECT ENAME,JOB
+  2  FROM EMP
+  3 WHERE LENGTH(JOB)-LENGTH(REPLACE(JOB,'MAN')) > 0;
+
+Output:-
+
+ENAME      JOB                                                                                      
+---------- ---------                                                                                
+ALLEN      SALESMAN                                                                                 
+WARD       SALESMAN                                                                                 
+JONES      MANAGER                                                                                  
+MARTIN     SALESMAN                                                                                 
+BLAKE      MANAGER                                                                                  
+CLARK      MANAGER                                                                                  
+TURNER     SALESMAN                                                                                 
+
+7 rows selected.
+
+
+~~~~~~Que-11(Display all the employees whose job starts with string 'MAN')
+
+SQL>  SELECT *
+  2   FROM EMP
+  3   WHERE SUBSTR(JOB,1,3)='MAN';
+
+Output:-
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO               
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------               
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20               
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30               
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10               
+
+
+
+~~~~~~Que-12(Display all the employees whose job ends with string 'MAN')
+
+SQL> SELECT *
+  2  FROM EMP
+  3  WHERE SUBSTR(JOB,-3,3)='MAN';
+
+Output:-
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO               
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------               
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30               
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30               
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30               
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30               
+
+
+
+~~~~~~Que-13(Display first 3 characters of ename in lower case and rest everything in upper case.
+		If ENAME is 'QSPIDERS' then display this as ‘qspIDERS’)
+
+
+SQL> SELECT CONCAT(LOWER(SUBSTR(ENAME,1,3)),SUBSTR(ENAME,4))
+  2  FROM EMP;
+
+Output:-
+
+CONCAT(LOW                                                                                          
+----------                                                                                          
+smiTH                                                                                               
+adaMS                                                                                               
+jamES                                                                                               
+milLER                                                                                              
+allEN                                                                                               
+warD                                                                                                
+jonES                                                                                               
+marTIN                                                                                              
+blaKE                                                                                               
+claRK                                                                                               
+scoTT                                                                                               
+kinG                                                                                                
+turNER                                                                                              
+forD                                                                                                
+
+14 rows selected.
+
+
+
+~~~~~~Que-14 (Display the result from emp table as below.
+	SMITH is a CLERK and gets salary 2000
+	Here SMITH is ENAME , CLERK is JOB and 2000 is SAL
+	column and rest everything is literal strings.)
+
+SQL>   SELECT CONCAT(ENAME,CONCAT(' is a ',CONCAT(JOB,CONCAT(' and get salary ',SAL))))
+  2    FROM EMP;
+
+
+Output:-
+
+CONCAT(ENAME,CONCAT('ISA',CONCAT(JOB,CONCAT('ANDGETSALARY',SAL))))                                  
+---------------------------------------------------------------------------------                   
+SMITH is a CLERK and get salary 800                                                                 
+ADAMS is a CLERK and get salary 1100                                                                
+JAMES is a CLERK and get salary 950                                                                 
+MILLER is a CLERK and get salary 1300                                                               
+ALLEN is a SALESMAN and get salary 1600                                                             
+WARD is a SALESMAN and get salary 1250                                                              
+JONES is a MANAGER and get salary 2975                                                              
+MARTIN is a SALESMAN and get salary 1250                                                            
+BLAKE is a MANAGER and get salary 2850                                                              
+CLARK is a MANAGER and get salary 2450                                                              
+SCOTT is a ANALYST and get salary 3000                                                              
+KING is a PRESIDENT and get salary 5000                                                             
+TURNER is a SALESMAN and get salary 1500                                                            
+FORD is a ANALYST and get salary 3000                                                               
+
+14 rows selected.
+
+
+~~~~~~Que-15(List the employees hired on a Wednesday.)
+
+
+SQL>  SELECT *
+  2  FROM EMP
+  3 WHERE TO_CHAR(HIREDATE,'D')=4;
+
+Output:-
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO               
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------               
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20               
+
+ 
+~~~~~~Que-16(List the employees hired on a leap year.) 
+
+SQL> SELECT *
+  2  FROM  EMP
+  3  WHERE MOD(TO_CHAR(HIREDATE,'YY'),4)=0;
+
+
+Output-
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO               
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------               
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20               
+
+
+
+~~~~~~Que-17(List the employees hired on a Sunday in the month of may)
+
+SQL> SELECT *
+  2  FROM EMP
+  3  WHERE TO_CHAR(HIREDATE,'D')=1 AND TO_CHAR(HIREDATE,'MON')='MAY';
+
+Output:-
+
+no rows selected /////(Because no any employee are joined on sundayin the month of may)
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  SELECT *
+  2  FROM EMP
+  3* WHERE TO_CHAR(HIREDATE,'D')=7 AND TO_CHAR(HIREDATE,'MON')='MAY'
+
+
+Output:- ////(This is a example that our previous query are right
+	      Because here one employee are joined on saturday in the month of may)
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO               
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------               
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20               
+
+SQL> 
