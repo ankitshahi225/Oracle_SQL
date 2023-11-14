@@ -1,0 +1,114 @@
+
+
+~~~~~Que-01(WAQTD ALL THE DETAILS OF THE EMPLOYEES 
+	ACCORDING TO THE HIREDATE IN DESCENDING .)
+
+SQL> SELECT * FROM EMP
+  2 ORDER BY HIREDATE DESC;
+
+OUTPUT:-
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO               
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------               
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20               
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20               
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10               
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30               
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30               
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10               
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30               
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20               
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30               
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30               
+
+10 rows selected.
+
+
+
+~~~~~Que-02(WAQTD ALL THE DETAILS OF THE EMPLOYEES 
+	WHO ARE GETTING SOME COMMISSION AND 
+	ARRANGE THE OUTPUT IN ASCENDING ORDER .)
+
+SQL>  SELECT * FROM EMP
+  2  WHERE COMM IS NOT NULL
+  3 ORDER BY EMPNO ASC;
+
+OUTPUT:-
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO               
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------               
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30               
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30               
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30               
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30               
+
+
+
+~~~~~Que-03(WAQTD SALARY , ANNUAL SALARY,QUARTER 
+	SALARY ALONG WITH EMPLOYEE NAME AND 
+	ARRANGE THE OUTPUT ACCORDING TO 
+	QUARTER SALARY IN DESCENDING ORDER)
+
+SQL>  SELECT SAL,SAL*12,SAL*3 "QUART SAL",ENAME FROM EMP
+  2 ORDER BY "QUART SAL" DESC;
+
+OUTPUT:-
+
+       SAL     SAL*12  QUART SAL ENAME                                                              
+---------- ---------- ---------- ----------                                                         
+      5000      60000      15000 KING                                                               
+      3000      36000       9000 SCOTT                                                              
+      3000      36000       9000 FORD                                                               
+      2975      35700       8925 JONES                                                              
+      2850      34200       8550 BLAKE                                                              
+      2450      29400       7350 CLARK                                                              
+      1600      19200       4800 ALLEN                                                              
+      1500      18000       4500 TURNER                                                             
+      1250      15000       3750 WARD                                                               
+      1250      15000       3750 MARTIN                                                             
+
+10 rows selected.
+
+
+
+
+~~~~~Que-04(WAQTD SALARY , 10 % HIKE IN ANNUAL SALARY WHO ARE WORKING AS 
+		MANAGER,CLERK,SALESMAN IN DEPT 10,20,30 AND ARRANGE THE 
+		OUTPUT ACCORDING TO THE SALARY IN ASCENDING ORDER.)
+
+SQL> SELECT SAL,SAL*12*1.10 FROM EMP
+  2  WHERE JOB IN('MANAGER','CLERK','SALESMAN') AND DEPTNO IN(10,20,30)
+  3 ORDER BY SAL ASC;
+
+
+OUTPUT:-
+       SAL SAL*12*1.10                                                                              
+---------- -----------                                                                              
+      1250       16500                                                                              
+      1250       16500                                                                              
+      1500       19800                                                                              
+      1600       21120                                                                              
+      2450       32340                                                                              
+      2850       37620                                                                              
+      2975       39270                                                                              
+
+7 rows selected.
+
+
+
+~~~~~Que-05(WAQTD ALL THE DETAILS OF ALL THE EMPLOYEES WHO ARE 
+	HAVING A REPORTING MANAGER AND ARRANGE THE OUTPUT 
+	ACCORDING TO THE HIREDATE IN DESCENDING ORDER)
+
+SQL> SELECT * FROM EMP
+  2  WHERE JOB='MANAGER' AND MGR IS NOT NULL
+  3  ORDER BY HIREDATE DESC;
+
+
+OUTPUT:-
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO               
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------               
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10               
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30               
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20               
+
+SQL> 
