@@ -1,0 +1,233 @@
+
+------Que-01(WAQTD all the salary of employee if the salary is greater than 1500.)
+
+SQL> SELECT ENAME,SAL 
+   2 FROM EMP 
+   3 WHERE SAL>1500;
+
+Output:-
+ENAME             SAL                                                                               
+---------- ----------                                                                               
+ALLEN            1600                                                                               
+JONES            2975                                                                               
+BLAKE            2850                                                                               
+CLARK            2450                                                                               
+SCOTT            3000                                                                               
+KING             5000                                                                               
+FORD             3000                                                                               
+
+7 rows selected.
+
+
+------Que-02(WAQTD all the details of the employee if designation is Manager.)
+
+SQL> SELECT *
+     FROM EMP 
+     WHERE JOB='MANAGER';
+
+Output:-
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO               
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------               
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20               
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30               
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10               
+
+
+
+------Que-03(WAQTD Employee name ,Department no., Date of joining if the 
+             date of joining is “01-JAN-1995”.)
+
+
+SQL> SELECT ENAME,DEPTNO,HIREDATE
+     FROM EMP
+     WHERE HIREDATE='01-JAN-1995';
+
+Output:-
+no rows selected 
+
+
+------Que-04(WAQTD all the details of employee only if they were hired after 
+	   the year 1995)
+
+SQL> SELECT *
+  2  FROM EMP
+  3  WHERE HIREDATE >'31-DEC-1995';
+
+OUTPUT:-
+no rows selected  //// (Because No any employee joined after 1995)
+
+                                                              
+------Que-05(WAQTD department name, department number for all the 
+	    department which is located in NEW YORK.)
+
+
+SQL> SELECT DNAME,DEPTNO
+     FROM DEPT 
+     WHERE LOC='NEW YORK';
+
+Output:-
+
+DNAME              DEPTNO                                                                           
+-------------- ----------                                                                           
+ACCOUNTING             10                                                                           
+
+
+------Que-06( WAQTD Department number along with location whose 
+	     Department is Research)
+
+SQL> SELECT DEPTNO,LOC
+     FROM DEPT 
+     WHERE DNAME='RESEARCH';
+
+Output:-
+    DEPTNO LOC                                                                                      
+---------- -------------                                                                            
+        20 DALLAS                                                                                   
+
+
+------Que-07(WAQTD Salary ,Annual salary , Quarter salary of all the 
+	employees if salary is greater than commission.)
+
+
+SQL> SELECT SAL,SAL*12 "ANNUAL SALARY",SAL*3 QUARTER_SALARY
+     FROM EMP
+     WHERE SAL>COMM;
+
+Output:-
+       SAL ANNUAL SALARY QUARTER_SALARY                                                             
+---------- ------------- --------------                                                             
+      1600         19200           4800                                                             
+      1250         15000           3750                                                             
+      1500         18000           4500                                                             
+
+
+
+------Que-08(WAQTD Employee name , Monthly salary , Job of all the 
+	    employees who’s monthly salary is greater than 2000.)
+
+SQL> SELECT ENAME,SAL MONTHLY_SAL,JOB 
+      FROM EMP 
+      WHERE SAL>2000;
+
+Output:-
+ENAME      MONTHLY_SAL JOB                                                                          
+---------- ----------- ---------                                                                    
+JONES             2975 MANAGER                                                                      
+BLAKE             2850 MANAGER                                                                      
+CLARK             2450 MANAGER                                                                      
+SCOTT             3000 ANALYST                                                                      
+KING              5000 PRESIDENT                                                                    
+FORD              3000 ANALYST                                                                      
+
+6 rows selected.
+
+
+------Que-09(WAQTD all the details of employees if the department number is 20)
+
+SQL> SELECT * 
+     FROM EMP 
+     WHERE DEPTNO=20;
+
+Output:-
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO               
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------               
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20               
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20               
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20               
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20               
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20               
+
+
+
+------Que-10(WAQTD Salary , Annual salary, 10% Hike in Quarter salary if and 
+	    only if designation is Clerk)                                                                    
+
+SQL> SELECT JOB,SAL,SAL*12,SAL*3*1.10 
+     FROM EMP 
+     WHERE JOB='CLERK';
+
+Output:-
+JOB              SAL     SAL*12 SAL*3*1.10                                                          
+--------- ---------- ---------- ----------                                                          
+CLERK            800       9600       2640                                                          
+CLERK           1100      13200       3630                                                          
+CLERK            950      11400       3135                                                          
+CLERK           1300      15600       4290                                                          
+
+
+------Que-11(WAQTD details of the employee who’s name is Ford.)
+
+
+SQL> SELECT *
+     FROM EMP 
+     WHERE ENAME='FORD';
+
+Output:-
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO               
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------               
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20               
+
+
+------Que-12(WAQTD Annual salary , 1000 rs bonus in annual salary along 
+	with monthly salary if department number is 30.)
+
+SQL> SELECT SAL*12 "ANNUAL SAL",SAL*12+1000 "1000 RS BONUS",SAL MONTHLY_SAL,DEPTNO 
+     FROM EMP 
+     WHERE DEPTNO=30;
+
+Output:-
+ANNUAL SAL 1000 RS BONUS MONTHLY_SAL     DEPTNO                                                     
+---------- ------------- ----------- ----------                                                     
+     19200         20200        1600         30                                                     
+     15000         16000        1250         30                                                     
+     15000         16000        1250         30                                                     
+     34200         35200        2850         30                                                     
+     18000         19000        1500         30                                                     
+     11400         12400         950         30                                                     
+
+6 rows selected.
+
+
+------Que-13(WAQTD all the details of department if location is BOSTON)
+
+SQL> SELECT * 
+     FROM DEPT 
+     WHERE LOC='BOSTON';
+
+Output:-
+    DEPTNO DNAME          LOC                                                                       
+---------- -------------- -------------                                                             
+        40 OPERATIONS     BOSTON                                                                    
+
+
+
+------Que-14( WAQTD Salary , Quarter salary , 5% decrement in monthly 
+	salary if the job is Manager.)
+
+SQL> SELECT SAL,SAL*12 "ANNUAL SAL",SAL*0.95 "5% DECREMENT IN MONTH_SAL" 
+     FROM EMP 
+     WHERE JOB='MANAGER';
+
+OUTPUT:-
+       SAL  ANNUAL SAL 5% DECREMENT IN MONTH_SAL                                                     
+---------- ---------- -------------------------                                                     
+      2975      35700                   2826.25                                                     
+      2850      34200                    2707.5                                                     
+      2450      29400                    2327.5                                                     
+
+
+------Que-15(WAQTD all the details of all the employees whose commission 
+	    is less than salary)
+
+SQL> SELECT * 
+     FROM EMP 
+     WHERE COMM<SAL;
+
+Output:-
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO               
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------               
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30               
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30               
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30               
+
+SQL> 
