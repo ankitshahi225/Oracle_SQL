@@ -1,0 +1,307 @@
+
+~~~~~Que-1(WAQTD ENAME, DNAME OF ALL THE EMPLOYEES.)
+
+SELECT ENAME,DNAME
+  2  FROM EMP INNER JOIN DEPT
+  3  ON EMP.DEPTNO=DEPT.DEPTNO;
+
+Output:-
+
+ENAME      DNAME                                                                                                                                                                                                                                                                                            
+---------- --------------                                                                                                                                                                                                                                                                                   
+SMITH      RESEARCH                                                                                                                                                                                                                                                                                         
+ADAMS      RESEARCH                                                                                                                                                                                                                                                                                         
+JAMES      SALES                                                                                                                                                                                                                                                                                            
+MILLER     ACCOUNTING                                                                                                                                                                                                                                                                                       
+ALLEN      SALES                                                                                                                                                                                                                                                                                            
+WARD       SALES                                                                                                                                                                                                                                                                                            
+JONES      RESEARCH                                                                                                                                                                                                                                                                                         
+MARTIN     SALES                                                                                                                                                                                                                                                                                            
+BLAKE      SALES                                                                                                                                                                                                                                                                                            
+CLARK      ACCOUNTING                                                                                                                                                                                                                                                                                       
+SCOTT      RESEARCH                                                                                                                                                                                                                                                                                         
+KING       ACCOUNTING                                                                                                                                                                                                                                                                                       
+TURNER     SALES                                                                                                                                                                                                                                                                                            
+FORD       RESEARCH                                                                                                                                                                                                                                                                                         
+
+14 rows selected.
+
+
+~~~~~Que-2(WAQTD EMPNO, NAME, JOB, LOC OF ALL THE EMPLOYEES)
+
+
+SQL> SELECT EMPNO,ENAME,JOB,LOC
+  2  FROM EMP INNER JOIN DEPT
+  3  ON EMP.DEPTNO=DEPT.DEPTNO;
+
+Output:-
+
+     EMPNO ENAME      JOB       LOC                                                                                                                                                                                                                                                                         
+---------- ---------- --------- -------------                                                                                                                                                                                                                                                               
+      7369 SMITH      CLERK     DALLAS                                                                                                                                                                                                                                                                      
+      7876 ADAMS      CLERK     DALLAS                                                                                                                                                                                                                                                                      
+      7900 JAMES      CLERK     CHICAGO                                                                                                                                                                                                                                                                     
+      7934 MILLER     CLERK     NEW YORK                                                                                                                                                                                                                                                                    
+      7499 ALLEN      SALESMAN  CHICAGO                                                                                                                                                                                                                                                                     
+      7521 WARD       SALESMAN  CHICAGO                                                                                                                                                                                                                                                                     
+      7566 JONES      MANAGER   DALLAS                                                                                                                                                                                                                                                                      
+      7654 MARTIN     SALESMAN  CHICAGO                                                                                                                                                                                                                                                                     
+      7698 BLAKE      MANAGER   CHICAGO                                                                                                                                                                                                                                                                     
+      7782 CLARK      MANAGER   NEW YORK                                                                                                                                                                                                                                                                    
+      7788 SCOTT      ANALYST   DALLAS                                                                                                                                                                                                                                                                      
+      7839 KING       PRESIDENT NEW YORK                                                                                                                                                                                                                                                                    
+      7844 TURNER     SALESMAN  CHICAGO                                                                                                                                                                                                                                                                     
+      7902 FORD       ANALYST   DALLAS                                                                                                                                                                                                                                                                      
+
+14 rows selected.
+
+
+~~~~~Que-3  (WAQTD EMPNO, SAL , LOC IF THEY ARE WORKING AS SALESMAN)
+
+
+SQL> SELECT EMPNO,SAL,LOC
+  2  FROM EMP INNER JOIN DEPT
+  3  ON EMP.DEPTNO=DEPT.DEPTNO
+  4  AND JOB='SALESMAN';
+
+Output:-
+
+     EMPNO        SAL LOC                                                                                                                                                                                                                                                                                   
+---------- ---------- -------------                                                                                                                                                                                                                                                                         
+      7499       1600 CHICAGO                                                                                                                                                                                                                                                                               
+      7521       1250 CHICAGO                                                                                                                                                                                                                                                                               
+      7654       1250 CHICAGO                                                                                                                                                                                                                                                                               
+      7844       1500 CHICAGO                                                                                                                                                                                                                                                                               
+
+
+~~~~~Que-4 (WAQTD EMPNO , SAL ,COMM ,LOC IF EMPLOYEES ARE GETTING SAL MORE THAN 2000.)
+
+
+SQL> SELECT EMPNO,SAL,COMM,LOC
+  2  FROM EMP INNER JOIN DEPT
+  3  ON EMP.DEPTNO=DEPT.DEPTNO
+  4  AND SAL>2000;
+
+Output:-
+
+     EMPNO        SAL       COMM LOC                                                                                                                                                                                                                                                                        
+---------- ---------- ---------- -------------                                                                                                                                                                                                                                                              
+      7566       2975            DALLAS                                                                                                                                                                                                                                                                     
+      7698       2850            CHICAGO                                                                                                                                                                                                                                                                    
+      7782       2450            NEW YORK                                                                                                                                                                                                                                                                   
+      7788       3000            DALLAS                                                                                                                                                                                                                                                                     
+      7839       5000            NEW YORK                                                                                                                                                                                                                                                                   
+      7902       3000            DALLAS                                                                                                                                                                                                                                                                     
+
+6 rows selected.
+
+
+~~~~~Que-5(WAQTD NAME ,JOB ALONG WITH LOC OF EMPLOYEES IF THEY ARE 
+	WORKING AS PRESIDENT IN ACCOUNTING DEPT.)
+
+SQL> SELECT ENAME,JOB,LOC
+  2  FROM EMP INNER JOIN DEPT
+  3  ON EMP.DEPTNO=DEPT.DEPTNO
+  4  AND JOB='PRESIDENT' AND DNAME='ACCOUNTING';
+
+Output:-
+
+ENAME      JOB       LOC                                                                                                                                                                                                                                                                                    
+---------- --------- -------------                                                                                                                                                                                                                                                                          
+KING       PRESIDENT NEW YORK                                                                                                                                                                                                                                                                               
+
+
+~~~~~Que-6( WAQTD EMPNO ,SAL ,DNAME IF EMPLOYEES ARE GETTING COMM IN SALES DEPT)
+
+SQL>  SELECT EMPNO,SAL,DNAME
+  2  FROM EMP INNER JOIN DEPT
+  3  ON EMP.DEPTNO=DEPT.DEPTNO
+  4 AND COMM IS NOT NULL AND DNAME='SALES';
+
+Output:-
+
+     EMPNO        SAL DNAME                                                                                                                                                                                                                                                                                 
+---------- ---------- --------------                                                                                                                                                                                                                                                                        
+      7499       1600 SALES                                                                                                                                                                                                                                                                                 
+      7521       1250 SALES                                                                                                                                                                                                                                                                                 
+      7654       1250 SALES                                                                                                                                                                                                                                                                                 
+      7844       1500 SALES                                                                                                                                                                                                                                                                                 
+
+
+~~~~~Que-7(WAQTD DETAILS OF EMPLOYEES ALONG WITH LOC IF EMPLOYEES ARE LOCATED IN
+	CHICAGO.)
+
+SQL> SELECT EMP.*,LOC
+  2  FROM EMP INNER JOIN DEPT
+  3  ON EMP.DEPTNO=DEPT.DEPTNO
+  4  AND LOC='CHICAGO';
+
+Output:-
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO LOC                                                                                                                                                                                                                   
+---------- ---------- --------- ---------- --------- ---------- ---------- ---------- -------------                                                                                                                                                                                                         
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30 CHICAGO                                                                                                                                                                                                               
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30 CHICAGO                                                                                                                                                                                                               
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30 CHICAGO                                                                                                                                                                                                               
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30 CHICAGO                                                                                                                                                                                                               
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30 CHICAGO                                                                                                                                                                                                               
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30 CHICAGO                                                                                                                                                                                                               
+
+6 rows selected.
+
+
+~~~~~Que-8(WAQTD DETAILS OF DEPT ALONG WITH ENAME IF EMPLOYEES ARE NOT 
+	WORKING AS CLERK.)
+
+SQL> SELECT DEPT.*,ENAME
+  2  FROM EMP INNER JOIN DEPT
+  3  ON EMP.DEPTNO=DEPT.DEPTNO
+  4  AND JOB!='CLERK';
+
+Outptu:-
+
+    DEPTNO DNAME          LOC           ENAME                                                                                                                                                                                                                                                               
+---------- -------------- ------------- ----------                                                                                                                                                                                                                                                          
+        30 SALES          CHICAGO       ALLEN                                                                                                                                                                                                                                                               
+        30 SALES          CHICAGO       WARD                                                                                                                                                                                                                                                                
+        20 RESEARCH       DALLAS        JONES                                                                                                                                                                                                                                                               
+        30 SALES          CHICAGO       MARTIN                                                                                                                                                                                                                                                              
+        30 SALES          CHICAGO       BLAKE                                                                                                                                                                                                                                                               
+        10 ACCOUNTING     NEW YORK      CLARK                                                                                                                                                                                                                                                               
+        20 RESEARCH       DALLAS        SCOTT                                                                                                                                                                                                                                                               
+        10 ACCOUNTING     NEW YORK      KING                                                                                                                                                                                                                                                                
+        30 SALES          CHICAGO       TURNER                                                                                                                                                                                                                                                              
+        20 RESEARCH       DALLAS        FORD                                                                                                                                                                                                                                                                
+
+10 rows selected.
+
+
+~~~~~Que-9(WAQTD DETAILS OF EMPLOYEES AND DEPT IF EMPLOYEES ARE WORKING AS 
+	 SALESMAN OR MANAGER IN SALES OR RESEARCH DEPT)
+
+SQL>  SELECT EMP.*,DEPT.*
+  2  FROM EMP INNER JOIN DEPT
+  3  ON EMP.DEPTNO=DEPT.DEPTNO
+  4  AND JOB IN('SALESMAN','MANAGER')
+  5 AND DNAME IN('SALES','RESEARCH');
+
+Output:-
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO     DEPTNO DNAME          LOC                                                                                                                                                                                         
+---------- ---------- --------- ---------- --------- ---------- ---------- ---------- ---------- -------------- -------------                                                                                                                                                                               
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30         30 SALES          CHICAGO                                                                                                                                                                                     
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30         30 SALES          CHICAGO                                                                                                                                                                                     
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20         20 RESEARCH       DALLAS                                                                                                                                                                                      
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30         30 SALES          CHICAGO                                                                                                                                                                                     
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30         30 SALES          CHICAGO                                                                                                                                                                                     
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30         30 SALES          CHICAGO                                                                                                                                                                                     
+
+6 rows selected.
+
+~~~~~Que-10(WAQTD ENAME ,SAL ,DEPTNO ,LOC IF EMPS ARE WORKING AS ANALYST IN DALLAS
+	   OR BOSTON)
+
+SQL>   SELECT ENAME,SAL,EMP.DEPTNO,LOC
+  2  FROM EMP INNER JOIN DEPT
+  3  ON EMP.DEPTNO=DEPT.DEPTNO
+  4 AND JOB='ANALYST' AND LOC IN('DALLAS','BOSTON');
+
+Output:-
+
+ENAME             SAL     DEPTNO LOC                                                                                                                                                                                                                                                                        
+---------- ---------- ---------- -------------                                                                                                                                                                                                                                                              
+SCOTT            3000         20 DALLAS                                                                                                                                                                                                                                                                     
+FORD             3000         20 DALLAS                                                                                                                                                                                                                                                                     
+
+
+~~~~~Que-11(WAQTD NAME ,COMM ,HIREDATE ,DNAME ,LOC IF EMPLOYEES ARE WORKING IN 
+	    DEPT 30 OR 20 AS CLERK OR MANAGER OR SALESMAN)
+
+SQL> SELECT ENAME,COMM,HIREDATE,DNAME,LOC
+  2  FROM EMP INNER JOIN DEPT
+  3  ON EMP.DEPTNO=DEPT.DEPTNO
+  4  AND EMP.DEPTNO IN(30,20) AND JOB IN('CLERK','MANAGER','SALESMAN');
+
+Output:-
+
+ENAME            COMM HIREDATE  DNAME          LOC                                                                                                                                                                                                                                                          
+---------- ---------- --------- -------------- -------------                                                                                                                                                                                                                                                
+SMITH                 17-DEC-80 RESEARCH       DALLAS                                                                                                                                                                                                                                                       
+ADAMS                 23-MAY-87 RESEARCH       DALLAS                                                                                                                                                                                                                                                       
+JAMES                 03-DEC-81 SALES          CHICAGO                                                                                                                                                                                                                                                      
+ALLEN             300 20-FEB-81 SALES          CHICAGO                                                                                                                                                                                                                                                      
+WARD              500 22-FEB-81 SALES          CHICAGO                                                                                                                                                                                                                                                      
+JONES                 02-APR-81 RESEARCH       DALLAS                                                                                                                                                                                                                                                       
+MARTIN           1400 28-SEP-81 SALES          CHICAGO                                                                                                                                                                                                                                                      
+BLAKE                 01-MAY-81 SALES          CHICAGO                                                                                                                                                                                                                                                      
+TURNER              0 08-SEP-81 SALES          CHICAGO                                                                                                                                                                                                                                                      
+
+9 rows selected.
+
+
+~~~~~Que-12(WAQTD TOTAL SAL NEEDED TO PAY FOR ALL EMPLOYEES IN EACH DEPT BY USING 
+           JOINS)
+SQL>  SELECT SUM(SAL),EMP.DEPTNO
+  2  FROM EMP INNER JOIN DEPT
+  3  ON EMP.DEPTNO=DEPT.DEPTNO
+  4 GROUP BY EMP.DEPTNO;
+
+Output:-
+
+  SUM(SAL)     DEPTNO                                                                                                                                                                                                                                                                                       
+---------- ----------                                                                                                                                                                                                                                                                                       
+      9400         30                                                                                                                                                                                                                                                                                       
+     10875         20                                                                                                                                                                                                                                                                                       
+      8750         10                                                                                                                                                                                                                                                                                       
+
+
+~~~~~Que-13(WAQTD MAX OF SAL PRESENT IN EACH DEPT EXCEPT PRESIDENT IN WHICH
+           THERE ARE 3 EMPLOYESS WORKING.)
+
+SQL> SELECT MAX(SAL),EMP.DEPTNO
+  2  FROM EMP INNER JOIN DEPT
+  3  ON EMP.DEPTNO=DEPT.DEPTNO
+  4  AND JOB!='PRESIDENT'
+  5  GROUP BY EMP.DEPTNO
+  6  HAVING COUNT(*)=3;
+
+Output:-
+
+no rows selected
+
+
+~~~~~Que-14(WAQTD TOTAL SAL ALONG WITH DNAME IN EACH DEPT IN WHICH THERE ARE
+         ATLEAST 2 BUT ATMOST 6 EMPLOYEES ARE WORKING.)
+
+
+SQL>   SELECT SUM(SAL),DNAME,EMP.DEPTNO
+  2  FROM EMP INNER JOIN DEPT
+  3  ON EMP.DEPTNO=DEPT.DEPTNO
+  4  GROUP BY DNAME,EMP.DEPTNO
+  5 HAVING COUNT(JOB) BETWEEN 2 AND 6;
+
+Output:-
+
+  SUM(SAL) DNAME              DEPTNO                                                                                                                                                                                                                                                                        
+---------- -------------- ----------                                                                                                                                                                                                                                                                        
+     10875 RESEARCH               20                                                                                                                                                                                                                                                                        
+      9400 SALES                  30                                                                                                                                                                                                                                                                        
+      8750 ACCOUNTING             10                                                                                                                                                                                                                                                                        
+
+
+~~~~~Que-15(WAQTD DETAILS OF EMPLOYEES ALONG WITH DNAME IF EMPLOYEES ARE 
+	   GETTING 1ST MAXSAL)
+
+SQL> SELECT EMP.*,DNAME
+  2  FROM EMP INNER JOIN DEPT
+  3  ON EMP.DEPTNO=DEPT.DEPTNO
+  4  AND SAL=(SELECT MAX(SAL)
+  5           FROM EMP);
+
+Output:-
+ 
+    EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO DNAME                                                                                                                                                                                                                 
+---------- ---------- --------- ---------- --------- ---------- ---------- ---------- --------------                                                                                                                                                                                                        
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10 ACCOUNTING                                                                                                                                                                                                            
+
+
